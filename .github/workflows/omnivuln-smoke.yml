@@ -1,0 +1,57 @@
+name: OmniVuln Smoke
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang make
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pydantic jinja2 pytest
+
+      - name: Run tests
+        run: |
+          make test
+
+      - name: Run smoke pipeline
+        run: |
+          make smoke
+
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: demo/out/omnivuln.sarif
+          category: omnivuln-smoke
+
+      - name: Upload OmniVuln artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: omnivuln-smoke-artifacts
+          path: |
+            demo/out/finding.json
+            demo/out/omnivuln.sarif
+            demo/out/pr_comment.md
+            demo/out/asan.log
+            demo/out/parsed_asan.json

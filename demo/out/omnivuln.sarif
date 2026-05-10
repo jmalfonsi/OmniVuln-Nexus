@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "OmniVuln-Nexus",
+          "informationUri": "https://github.com/jmalfonsi/omnivuln-nexus",
+          "rules": [
+            {
+              "id": "omnivuln.CWE-787.stack-buffer-overflow",
+              "name": "CWE-787: stack-buffer-overflow",
+              "shortDescription": {
+                "text": "CWE-787 confirmed by sanitizer"
+              },
+              "fullDescription": {
+                "text": "OmniVuln validated this finding with a sanitizer crash and matched the crash stack frame to the hypothesized vulnerable sink."
+              },
+              "help": {
+                "text": "Review the matched sink, the sanitizer trace, and the generated reproducer. Do not suppress unless the reproducer is proven irrelevant."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "memory-corruption",
+                  "CWE-787",
+                  "ASAN",
+                  "stack-buffer-overflow"
+                ],
+                "precision": "very-high",
+                "security-severity": "9.0"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "omnivuln.CWE-787.stack-buffer-overflow",
+          "level": "error",
+          "message": {
+            "text": "validated_finding: CWE-787 confirmed by ASAN (stack-buffer-overflow) in function parse_packet."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo/vuln.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 5
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "omnivulnHypothesisId": "demo-001",
+            "omnivulnLocation": "demo/vuln.c:12:parse_packet",
+            "omnivulnBugType": "stack-buffer-overflow"
+          },
+          "properties": {
+            "alert_class": "validated_finding",
+            "blocking": true,
+            "hypothesis_id": "demo-001",
+            "schema_version": "omnivuln.smoke_hypothesis.v1",
+            "cwe": "CWE-787",
+            "sanitizer": "ASAN",
+            "bug_type": "stack-buffer-overflow",
+            "function": "parse_packet",
+            "reproducer": "./crash-65682de0b26fb1f3238a5865e4af5ee3394a78fd",
+            "base64": "TU1NTU1NTU0K"
+          }
+        }
+      ]
+    }
+  ]
+}

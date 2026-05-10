@@ -1,13 +1,13 @@
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 1787023310
-INFO: Loaded 1 modules   (5 inline 8-bit counters): 5 [0x61f5aebb5e88, 0x61f5aebb5e8d), 
-INFO: Loaded 1 PC tables (5 PCs): 5 [0x61f5aebb5e90,0x61f5aebb5ee0), 
+INFO: Seed: 1665012466
+INFO: Loaded 1 modules   (5 inline 8-bit counters): 5 [0x6481ebc4de88, 0x6481ebc4de8d), 
+INFO: Loaded 1 PC tables (5 PCs): 5 [0x6481ebc4de90,0x6481ebc4dee0), 
 INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
 INFO: A corpus is not provided, starting from an empty corpus
 #2	INITED cov: 3 ft: 3 corp: 1/1b exec/s: 0 rss: 32Mb
-#715	NEW    cov: 4 ft: 4 corp: 2/10b lim: 11 exec/s: 0 rss: 32Mb L: 9/9 MS: 3 InsertByte-InsertRepeatedBytes-CrossOver-
+#714	NEW    cov: 4 ft: 4 corp: 2/10b lim: 11 exec/s: 0 rss: 32Mb L: 9/9 MS: 2 InsertRepeatedBytes-InsertByte-
 #2097152	pulse  cov: 4 ft: 4 corp: 2/10b lim: 4096 exec/s: 1048576 rss: 192Mb
 #4194304	pulse  cov: 4 ft: 4 corp: 2/10b lim: 4096 exec/s: 838860 rss: 351Mb
-#8388608	pulse  cov: 4 ft: 4 corp: 2/10b lim: 4096 exec/s: 838860 rss: 577Mb
-==2287574== libFuzzer: run interrupted; exiting
-==2287574== libFuzzer: run interrupted; exiting
+#8388608	pulse  cov: 4 ft: 4 corp: 2/10b lim: 4096 exec/s: 838860 rss: 576Mb
+==2297702== libFuzzer: run interrupted; exiting
+==2297702== libFuzzer: run interrupted; exiting

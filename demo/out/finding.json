@@ -14,6 +14,6 @@
     "line": 12,
     "column": 5
   },
-  "reproducer": "./crash-351525e4854a04843c88c2e57cc4b40c084c082c",
-  "base64": "CnBwcHBwcHBw"
+  "reproducer": "./crash-65682de0b26fb1f3238a5865e4af5ee3394a78fd",
+  "base64": "TU1NTU1NTU0K"
 }

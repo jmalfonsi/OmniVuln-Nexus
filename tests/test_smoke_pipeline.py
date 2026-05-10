@@ -119,3 +119,43 @@ def test_wrong_sink_line_is_rejected():
     payload = json.loads(result.stdout)
     assert payload["matched"] is False
     assert payload["reason"] == "no_matching_stack_frame"
+
+def test_positive_pipeline_emits_sarif():
+    result = run(["./tools/run_smoke_pipeline.sh"])
+
+    assert result.returncode == 0, result.stdout + result.stderr
+
+    sarif = read_json("demo/out/omnivuln.sarif")
+
+    assert sarif["version"] == "2.1.0"
+
+    run0 = sarif["runs"][0]
+    assert run0["tool"]["driver"]["name"] == "OmniVuln-Nexus"
+
+    result0 = run0["results"][0]
+
+    assert result0["ruleId"] == "omnivuln.CWE-787.stack-buffer-overflow"
+    assert result0["level"] == "error"
+
+    location = result0["locations"][0]["physicalLocation"]
+    assert location["artifactLocation"]["uri"] == "demo/vuln.c"
+    assert location["region"]["startLine"] == 12
+
+    props = result0["properties"]
+    assert props["alert_class"] == "validated_finding"
+    assert props["blocking"] is True
+    assert props["sanitizer"] == "ASAN"
+    assert props["bug_type"] == "stack-buffer-overflow"
+
+def test_positive_pipeline_emits_pr_markdown():
+    result = run(["./tools/run_smoke_pipeline.sh"])
+
+    assert result.returncode == 0, result.stdout + result.stderr
+
+    md = (ROOT / "demo/out/pr_comment.md").read_text()
+
+    assert "OmniVuln validated finding" in md
+    assert "CWE-787" in md
+    assert "stack-buffer-overflow" in md
+    assert "demo/vuln.c:12" in md
+    assert "make smoke-negative" in md

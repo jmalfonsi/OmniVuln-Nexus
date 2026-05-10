@@ -1,28 +1,28 @@
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 2829132035
-INFO: Loaded 1 modules   (4 inline 8-bit counters): 4 [0x6376c276ce88, 0x6376c276ce8c), 
-INFO: Loaded 1 PC tables (4 PCs): 4 [0x6376c276ce90,0x6376c276ced0), 
+INFO: Seed: 4047003071
+INFO: Loaded 1 modules   (4 inline 8-bit counters): 4 [0x569bba098e88, 0x569bba098e8c), 
+INFO: Loaded 1 PC tables (4 PCs): 4 [0x569bba098e90,0x569bba098ed0), 
 INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
 INFO: A corpus is not provided, starting from an empty corpus
 #2	INITED cov: 3 ft: 3 corp: 1/1b exec/s: 0 rss: 32Mb
 =================================================================
-==2287740==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7916bdf0b228 at pc 0x6376c26e3cc8 bp 0x7ffdd3a74670 sp 0x7ffdd3a73e30
-WRITE of size 9 at 0x7916bdf0b228 thread T0
-    #0 0x6376c26e3cc7 in __asan_memcpy (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0xfecc7) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
-    #1 0x6376c2726848 in parse_packet /home/ubuntu/omnivuln/demo/vuln.c:12:5
-    #2 0x6376c2726984 in LLVMFuzzerTestOneInput /home/ubuntu/omnivuln/demo/out/fuzz_generated.cpp:9:5
-    #3 0x6376c2631c54 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4cc54) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
-    #4 0x6376c2631349 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4c349) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
-    #5 0x6376c2632b35 in fuzzer::Fuzzer::MutateAndTestOne() (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4db35) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
-    #6 0x6376c2633695 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4e695) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
-    #7 0x6376c262096f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x3b96f) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
-    #8 0x6376c264aff6 in main (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x65ff6) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
-    #9 0x7916bfe2a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: 8e9fd827446c24067541ac5390e6f527fb5947bb)
-    #10 0x7916bfe2a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: 8e9fd827446c24067541ac5390e6f527fb5947bb)
-    #11 0x6376c2615954 in _start (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x30954) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+==2297963==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x77758cf0b228 at pc 0x569bba00fcc8 bp 0x7ffcaa809bb0 sp 0x7ffcaa809370
+WRITE of size 9 at 0x77758cf0b228 thread T0
+    #0 0x569bba00fcc7 in __asan_memcpy (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0xfecc7) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+    #1 0x569bba052848 in parse_packet /home/ubuntu/omnivuln/demo/vuln.c:12:5
+    #2 0x569bba052984 in LLVMFuzzerTestOneInput /home/ubuntu/omnivuln/demo/out/fuzz_generated.cpp:9:5
+    #3 0x569bb9f5dc54 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4cc54) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+    #4 0x569bb9f5d349 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4c349) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+    #5 0x569bb9f5eb35 in fuzzer::Fuzzer::MutateAndTestOne() (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4db35) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+    #6 0x569bb9f5f695 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x4e695) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+    #7 0x569bb9f4c96f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x3b96f) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+    #8 0x569bb9f76ff6 in main (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x65ff6) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
+    #9 0x77758ee2a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: 8e9fd827446c24067541ac5390e6f527fb5947bb)
+    #10 0x77758ee2a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: 8e9fd827446c24067541ac5390e6f527fb5947bb)
+    #11 0x569bb9f41954 in _start (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0x30954) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e)
 
-Address 0x7916bdf0b228 is located in stack of thread T0 at offset 40 in frame
-    #0 0x6376c272670f in parse_packet /home/ubuntu/omnivuln/demo/vuln.c:4
+Address 0x77758cf0b228 is located in stack of thread T0 at offset 40 in frame
+    #0 0x569bba05270f in parse_packet /home/ubuntu/omnivuln/demo/vuln.c:4
 
   This frame has 1 object(s):
     [32, 40) 'dst' (line 5) <== Memory access at offset 40 overflows this variable
@@ -30,17 +30,17 @@ HINT: this may be a false positive if your program uses some custom stack unwind
       (longjmp and C++ exceptions *are* supported)
 SUMMARY: AddressSanitizer: stack-buffer-overflow (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0xfecc7) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e) in __asan_memcpy
 Shadow bytes around the buggy address:
-  0x7916bdf0af80: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
-  0x7916bdf0b000: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
-  0x7916bdf0b080: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
-  0x7916bdf0b100: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
-  0x7916bdf0b180: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
-=>0x7916bdf0b200: f1 f1 f1 f1 00[f3]f3 f3 00 00 00 00 00 00 00 00
-  0x7916bdf0b280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x7916bdf0b300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x7916bdf0b380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x7916bdf0b400: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x7916bdf0b480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77758cf0af80: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x77758cf0b000: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x77758cf0b080: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x77758cf0b100: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x77758cf0b180: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+=>0x77758cf0b200: f1 f1 f1 f1 00[f3]f3 f3 00 00 00 00 00 00 00 00
+  0x77758cf0b280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77758cf0b300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77758cf0b380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77758cf0b400: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x77758cf0b480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 Shadow byte legend (one shadow byte represents 8 application bytes):
   Addressable:           00
   Partially addressable: 01 02 03 04 05 06 07 
@@ -60,9 +60,9 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
   ASan internal:           fe
   Left alloca redzone:     ca
   Right alloca redzone:    cb
-==2287740==ABORTING
+==2297963==ABORTING
 MS: 1 InsertRepeatedBytes-; base unit: adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
-0xa,0x70,0x70,0x70,0x70,0x70,0x70,0x70,0x70,
-\012pppppppp
-artifact_prefix='./'; Test unit written to ./crash-351525e4854a04843c88c2e57cc4b40c084c082c
-Base64: CnBwcHBwcHBw
+0x4d,0x4d,0x4d,0x4d,0x4d,0x4d,0x4d,0x4d,0xa,
+MMMMMMMM\012
+artifact_prefix='./'; Test unit written to ./crash-65682de0b26fb1f3238a5865e4af5ee3394a78fd
+Base64: TU1NTU1NTU0K
