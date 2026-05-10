@@ -1,0 +1,17 @@
+{
+  "schema_version": "omnivuln.smoke_hypothesis.v1",
+  "hypothesis_id": "demo-evil",
+  "cwe": "CWE-787",
+  "confidence_score": 0.95,
+  "sink": {
+    "function": "parse_packet",
+    "file": "demo/vuln.c",
+    "line": 12,
+    "symbol": "memcpy"
+  },
+  "validation": {
+    "type": "asan_libfuzzer",
+    "expected_bug_type": "stack-buffer-overflow"
+  },
+  "reasoning": "Je pense que c'est vulnérable parce que memcpy est dangereux."
+}

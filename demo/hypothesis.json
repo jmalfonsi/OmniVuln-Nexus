@@ -1,0 +1,16 @@
+{
+    "schema_version": "omnivuln.smoke_hypothesis.v1",
+    "hypothesis_id": "demo-001",
+    "cwe": "CWE-787",
+    "confidence_score": 0.95,
+    "sink": {
+        "function": "parse_packet",
+        "file": "demo/vuln.c",
+        "line": 12,
+        "symbol": "memcpy"
+    },
+    "validation": {
+        "type": "asan_libfuzzer",
+        "expected_bug_type": "stack-buffer-overflow"
+    }
+}

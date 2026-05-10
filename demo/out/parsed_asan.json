@@ -1,0 +1,24 @@
+{
+  "sanitizer": "ASAN",
+  "bug_type": "stack-buffer-overflow",
+  "crash_found": true,
+  "frames": [
+    {
+      "index": 1,
+      "function": "parse_packet",
+      "file": "/home/ubuntu/omnivuln/demo/vuln.c",
+      "line": 12,
+      "column": 5
+    },
+    {
+      "index": 2,
+      "function": "LLVMFuzzerTestOneInput",
+      "file": "/home/ubuntu/omnivuln/demo/out/fuzz_generated.cpp",
+      "line": 9,
+      "column": 5
+    }
+  ],
+  "summary": "stack-buffer-overflow (/home/ubuntu/omnivuln/demo/out/fuzz_generated+0xfecc7) (BuildId: 2baac035b3e91a167cb1685f5745fa136a92811e) in __asan_memcpy",
+  "reproducer": "./crash-351525e4854a04843c88c2e57cc4b40c084c082c",
+  "base64": "CnBwcHBwcHBw"
+}

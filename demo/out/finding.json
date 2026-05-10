@@ -1,0 +1,19 @@
+{
+  "matched": true,
+  "alert_class": "validated_finding",
+  "blocking": true,
+  "hypothesis_id": "demo-001",
+  "schema_version": "omnivuln.smoke_hypothesis.v1",
+  "cwe": "CWE-787",
+  "sanitizer": "ASAN",
+  "bug_type": "stack-buffer-overflow",
+  "matched_frame": {
+    "index": 1,
+    "function": "parse_packet",
+    "file": "/home/ubuntu/omnivuln/demo/vuln.c",
+    "line": 12,
+    "column": 5
+  },
+  "reproducer": "./crash-351525e4854a04843c88c2e57cc4b40c084c082c",
+  "base64": "CnBwcHBwcHBw"
+}
